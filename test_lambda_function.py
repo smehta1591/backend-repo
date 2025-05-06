@@ -1,25 +1,24 @@
 import os
-import pytest
 from unittest.mock import patch, MagicMock
 from lambda_function import lambda_handler
 
-# Set the region for testing purposes
-os.environ['AWS_REGION'] = 'us-east-1'  # Set to your desired region
+# Ensure AWS region is set to avoid boto3 issues (optional safety)
+os.environ['AWS_REGION'] = 'us-east-1'
 
-@patch('lambda_function.dynamodb')  # Mock the DynamoDB resource
-def test_lambda_handler(mock_dynamodb):
-    # Create a mock for the table and define its return value
+@patch('lambda_function.boto3.resource')
+def test_lambda_handler(mock_boto_resource):
+    # Create a mock DynamoDB table
     mock_table = MagicMock()
     mock_table.update_item.return_value = {
         'Attributes': {'count': 42}
     }
 
-    # When the lambda function calls 'dynamodb.Table()', return the mock table
-    mock_dynamodb.Table.return_value = mock_table
+    # Configure the mock resource to return the mock table
+    mock_boto_resource.return_value.Table.return_value = mock_table
 
-    # Call lambda_handler with a fake event and context (since we're testing locally)
+    # Call your lambda function handler
     response = lambda_handler({}, {})
 
-    # Assertions: Check if the response is correct
+    # Assertions
     assert response['statusCode'] == 200
     assert 'count' in response['body']
