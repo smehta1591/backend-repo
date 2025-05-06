@@ -59,7 +59,19 @@ jobs:
 
       - name: Sync files to S3
         run: |
-          aws s3 sync ./ s3://www.mehtashreyaresume-website.com/ --delete
+          aws s3 sync ./ s3://your-bucket-name/ --delete \
+  --exclude ".git/*" \
+  --exclude ".github/*" \
+  --exclude ".gitignore" \
+  --exclude "terraform/*" \
+  --exclude "__pycache__/*" \
+  --exclude "*.pyc" \
+  --exclude "*.tf" \
+  --exclude "*.tfstate" \
+  --exclude "*.tfstate.backup" \
+  --exclude "requirements.txt" \
+  --exclude "venv/*"
+
 
       # CloudFront Invalidation
       - name: Invalidate CloudFront Cache
