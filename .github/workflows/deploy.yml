@@ -59,7 +59,7 @@ jobs:
 
       - name: Sync files to S3
         run: |
-          aws s3 sync ./ s3://your-bucket-name/ --delete \
+          aws s3 sync ./ s3://www.mehtashreyaresume-website.com/ --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
             --exclude ".gitignore" \
