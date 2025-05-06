@@ -59,7 +59,7 @@ jobs:
 
       - name: Sync files to S3
         run: |
-          aws s3 sync ./build/ s3://www.mehtashreyaresume-website.com/ --delete
+          aws s3 sync ./ s3://www.mehtashreyaresume-website.com/ --delete
 
       # CloudFront Invalidation
       - name: Invalidate CloudFront Cache
