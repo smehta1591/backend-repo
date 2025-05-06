@@ -57,20 +57,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: 'us-east-1'
 
-      - name: Sync files to S3
+      - name: Sync static site files to S3
         run: |
-          aws s3 sync ./site s3://www.mehtashreyaresume-website.com/ --delete \
-            --exclude ".git/*" \
-            --exclude ".github/*" \
-            --exclude ".gitignore" \
-            --exclude "terraform/*" \
-            --exclude "__pycache__/*" \
-            --exclude "*.pyc" \
-            --exclude "*.tf" \
-            --exclude "*.tfstate" \
-            --exclude "*.tfstate.backup" \
-            --exclude "requirements.txt" \
-            --exclude "venv/*"
+          aws s3 sync ./site s3://www.mehtashreyaresume-website.com/ --delete
 
       - name: Invalidate CloudFront Cache
         run: |
