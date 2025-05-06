@@ -1,6 +1,10 @@
+import os
 import pytest
 from unittest.mock import patch, MagicMock
 from lambda_function import lambda_handler
+
+# Set the region for testing purposes
+os.environ['AWS_REGION'] = 'us-east-1'  # Set to your desired region
 
 @patch('lambda_function.dynamodb')  # Mock the DynamoDB resource
 def test_lambda_handler(mock_dynamodb):
