@@ -29,15 +29,15 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ./terraform  # update this path if your terraform files are elsewhere
+        working-directory: ./backend  # update this path if your terraform files are elsewhere
 
       - name: Terraform Plan
         run: terraform plan
-        working-directory: ./terraform
+        working-directory: ./backend
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-        working-directory: ./terraform
+        working-directory: ./backend
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
