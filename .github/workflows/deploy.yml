@@ -3,7 +3,7 @@ name: Test and Deploy Lambda
 on:
   push:
     branches:
-      - master  # or 'main' depending on your default branch
+      - master  # or 'main'
 
 jobs:
   test-and-deploy:
@@ -48,32 +48,30 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
 
+      # 🔽 S3 and CloudFront Steps Below 🔽
 
-  # S3 Deployment
       - name: Set up AWS CLI
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: 'us-east-1'  # Change to your region if needed
+          aws-region: 'us-east-1'
 
       - name: Sync files to S3
         run: |
           aws s3 sync ./ s3://your-bucket-name/ --delete \
-  --exclude ".git/*" \
-  --exclude ".github/*" \
-  --exclude ".gitignore" \
-  --exclude "terraform/*" \
-  --exclude "__pycache__/*" \
-  --exclude "*.pyc" \
-  --exclude "*.tf" \
-  --exclude "*.tfstate" \
-  --exclude "*.tfstate.backup" \
-  --exclude "requirements.txt" \
-  --exclude "venv/*"
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude ".gitignore" \
+            --exclude "terraform/*" \
+            --exclude "__pycache__/*" \
+            --exclude "*.pyc" \
+            --exclude "*.tf" \
+            --exclude "*.tfstate" \
+            --exclude "*.tfstate.backup" \
+            --exclude "requirements.txt" \
+            --exclude "venv/*"
 
-
-      # CloudFront Invalidation
       - name: Invalidate CloudFront Cache
         run: |
           aws cloudfront create-invalidation --distribution-id EQYGFY2CJQZN --paths "/*"
