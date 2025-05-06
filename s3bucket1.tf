@@ -24,8 +24,7 @@ resource "aws_s3_bucket" "example1" {
 resource "aws_s3_object" "index1_file" {
   bucket = aws_s3_bucket.example1.id
   key    = "index.html"
-  source = "C:/tf/s3-config/backend/index.html"   # 🟡 Your local path
-  etag   = filemd5("C:/tf/s3-config/backend/index.html")
+  source = "${path.module}/index.html"   # 🟡 Your local path
   content_type = "text/html"
 
 }
@@ -35,8 +34,7 @@ resource "aws_s3_object" "index1_file" {
 resource "aws_s3_object" "css_file" {
   bucket = aws_s3_bucket.example1.id
   key    = "mystyle.css"
-  source = "C:/tf/s3-config/backend/mystyle.css"   # 🟡 Your local path
-  etag   = filemd5("C:/tf/s3-config/backend/mystyle.css")
+  source = "${path.module}/mystyle.css"   # 🟡 Your local path
   content_type = "text/css"
 
 }
