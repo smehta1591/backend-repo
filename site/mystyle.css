@@ -2,24 +2,24 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Cormorant Garamond', serif;
-  background-color: white;
+  background-color: #e0eeee; /* match .page-container */
   overflow-x: hidden;
-}
 
 .page-container {
   display: flex;
   justify-content: center;
   background-color: #e0eeee;
-  min-height: 100vh;
-  padding: 10px; /* add padding for smaller screens */
-  box-sizing: border-box;
+  min-height: auto;
+  width: 100vw;
+  overflow-x: hidden;
 }
+
 
 .inner-container {
   background-color: white;
   width: 100%;
   max-width: 850px;
-  padding: 0 15px;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -48,11 +48,13 @@ body {
   margin-top: 0;
 }
 
-p, li {
-  margin-left: 0;
-  padding-left: 15px;
+p, li, table {
+  padding-left: 10px;
+  padding-right: 10px;
   box-sizing: border-box;
+  margin-left: 0;
 }
+
 
 ul {
   margin-bottom: 15px;
