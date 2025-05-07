@@ -1,73 +1,64 @@
-* {
-  max-width: 900px;
-  margin: auto;
-  
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cormorant Garamond', serif;
+  background-color: white;
 }
 
-
-
-
-
-
-#name {
-  font-family: Sacramento;
-  float: right;
-  margin-top: 10px;
-  margin-right: 4%;
+.page-container {
+  display: flex;
+  justify-content: center;
+  background-color: #e0eeee;
+  min-height: 100vh;
 }
 
-
-
+.inner-container {
+  background-color: white;
+  width: 850px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
 
 #header {
-  height: 45px;
-  width: 80%;
+  height: 50px;
+ font-size: 22px;
   background-color: #ffcccc;
-  position: fixed;
-  z-index: 1;
-  margin-left: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-}
-
-p,
-li {
-  font-family: 'Cormorant Garamond';
-   margin-left: 60px;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  margin: 5px 0;
 }
 
 .head {
- font-size: 20px;
-  margin-left: 80px;
+  font-size: 17px;
+  font-weight: 550;
+  margin-top: 20px;
+  margin-bottom: 5px;  /* Reduce space below headings */
 }
 
-}
- 
-
-.right {
-  height: 1000px;
-  width: 50px;
-  background-color: #e0eeee;
-  float: right;
-  position: fixed;
-  
+.head + ul {
+  margin-top: 0; /* Remove extra gap between heading and its list */
 }
 
-.left {
-  height: 1000px;
-  width: 40px;
-  background-color: #e0eeee;
-  float: left;
-margin-left: 10px;
-  position: inherit;
+p, li {
+  margin-left: 20px;
 }
 
-.stuff {
-  display: inline-block;
-  margin-top: 6px;
-  margin-left: 55px;
-  width: 80%;
-  height: 1000px;
-  margin-right: 50px;
+ul {
+  margin-bottom: 15px; /* Space between list and next section */
 }
 
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
 
+table {
+  width: 95%;
+  margin-left: 20px;
+}
