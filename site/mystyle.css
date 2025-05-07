@@ -1,28 +1,31 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
   font-family: 'Cormorant Garamond', serif;
-  background-color: #e0eeee; /* match .page-container */
+  background-color: #e0eeee;
   overflow-x: hidden;
+}
 
 .page-container {
   display: flex;
   justify-content: center;
-  background-color: #e0eeee;
-  min-height: auto;
-  width: 100vw;
-  overflow-x: hidden;
+  padding: 20px;
+  min-height: 100%;
 }
-
 
 .inner-container {
   background-color: white;
   width: 100%;
   max-width: 850px;
-  padding: 0 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
 #header {
@@ -34,7 +37,7 @@ body {
   justify-content: center;
   font-family: 'Georgia', serif;
   font-weight: bold;
-  margin: 5px 0;
+  margin-bottom: 10px;
 }
 
 .head {
@@ -44,36 +47,32 @@ body {
   margin-bottom: 5px;
 }
 
-.head + ul {
-  margin-top: 0;
-}
-
-p, li, table {
-  padding-left: 10px;
-  padding-right: 10px;
-  box-sizing: border-box;
-  margin-left: 0;
-}
-
-
 ul {
   margin-bottom: 15px;
+  padding-left: 20px;
 }
 
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 5px;
+li {
+  margin-bottom: 5px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
 }
 
 table {
   width: 100%;
-  margin-left: 0;
-  box-sizing: border-box;
-  overflow-x: auto;
+  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 
-/* Optional: responsive tweaks */
+th, td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
+
+/* Responsive tweaks */
 @media (max-width: 600px) {
   #header {
     font-size: 18px;
@@ -81,5 +80,9 @@ table {
 
   .head {
     font-size: 15px;
+  }
+
+  .inner-container {
+    padding: 15px;
   }
 }
