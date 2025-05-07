@@ -3,47 +3,35 @@ body {
   padding: 0;
   font-family: 'Cormorant Garamond', serif;
   background-color: white;
+  overflow-x: hidden;
 }
-
-
 
 .page-container {
   display: flex;
   justify-content: center;
   background-color: #e0eeee;
   min-height: 100vh;
+  padding: 10px; /* add padding for smaller screens */
+  box-sizing: border-box;
 }
-
-@media (max-width: 600px) {
-  p, li, table {
-    margin-left: 5px;
-  }
-
-  table {
-    width: 100%;
-  }
-}
-
 
 .inner-container {
   background-color: white;
   width: 100%;
   max-width: 850px;
-  padding: 0 20px;
+  padding: 0 15px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
-
 #header {
   height: 50px;
- font-size: 22px;
+  font-size: 22px;
   background-color: #ffcccc;
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-family: 'Georgia', serif;
   font-weight: bold;
   margin: 5px 0;
@@ -53,19 +41,21 @@ body {
   font-size: 17px;
   font-weight: 550;
   margin-top: 20px;
-  margin-bottom: 5px;  /* Reduce space below headings */
+  margin-bottom: 5px;
 }
 
 .head + ul {
-  margin-top: 0; /* Remove extra gap between heading and its list */
+  margin-top: 0;
 }
 
 p, li {
-  margin-left: 20px;
+  margin-left: 0;
+  padding-left: 15px;
+  box-sizing: border-box;
 }
 
 ul {
-  margin-bottom: 15px; /* Space between list and next section */
+  margin-bottom: 15px;
 }
 
 table, th, td {
@@ -75,6 +65,19 @@ table, th, td {
 }
 
 table {
-  width: 95%;
-  margin-left: 20px;
+  width: 100%;
+  margin-left: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* Optional: responsive tweaks */
+@media (max-width: 600px) {
+  #header {
+    font-size: 18px;
+  }
+
+  .head {
+    font-size: 15px;
+  }
 }
