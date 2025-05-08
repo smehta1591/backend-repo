@@ -36,6 +36,14 @@ h3 {
   margin-left: 20px
 }
 
+
+ps {
+
+    margin-bottom: 15px;
+  padding-left: 20px;
+font-family: 'Cormorant Garamond', serif;
+}
+
 .page-container {
   display: flex;
   justify-content: center;
@@ -168,3 +176,13 @@ th, td {
   font-family: 'Cormorant Garamond', serif;
   z-index: 1;
 }
+
+.profile-summary {
+  margin-bottom: 15px;
+  padding-left: 5px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #000;
+}
+
